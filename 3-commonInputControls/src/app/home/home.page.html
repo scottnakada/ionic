@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title align="center">
+            Common Input Controls
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col align="center">
+                <ion-button shape="round" color="primary" fill="outline" (click)="buttonClick()">Click Me!</ion-button>
+            </ion-col>
+            <ion-col align="center">
+                <ion-label>{{ buttonCounter }}</ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col align="center">
+                <ion-textarea value="{{ textArea }}" rows="6"></ion-textarea>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col align="center">
+                <ion-toggle [(ngModel)]="switch1" (ionChange) = "toggleChange();"></ion-toggle>
+            </ion-col>
+            <ion-col align="center">
+                <ion-label>{{ switch1State }}</ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col align="center">
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="textField" maxlength="15" (ionInput) = "textFieldChange($event.target.value)"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col align="center">
+                <ion-label>{{ textField }}</ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col align="center">
+                <ion-range [(ngModel)]="rangeValue"
+                           min="0" max="1" step="0.001"
+                           (ionChange) = "rangeChange();"></ion-range>
+            </ion-col>
+            <ion-col align="center">
+                <ion-label>{{ rangeValue }}</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
